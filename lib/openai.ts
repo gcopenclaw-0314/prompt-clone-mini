@@ -48,8 +48,22 @@ export async function generateHtml({
   }
 
   const data = (await res.json()) as OpenAIResponse;
-  const content = data.choices?.[0]?.message?.content?.trim() ?? "";
-  return stripCodeFences(content);
+  const rawContent = data.choices?.[0]?.message?.content as
+    | string
+    | Array<{ text?: string; type?: string }>
+    | undefined;
+
+  let content = "";
+  if (typeof rawContent === "string") {
+    content = rawContent;
+  } else if (Array.isArray(rawContent)) {
+    content = rawContent
+      .map((part) => part.text || "")
+      .join("")
+      .trim();
+  }
+
+  return stripCodeFences(content || "");
 }
 
 function stripCodeFences(input: string) {
