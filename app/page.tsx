@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const samplePrompt =
-  "Design a premium event marketing website for a SaaS that helps teams measure ROI from conferences. Include a crisp hero, social proof, feature grid, pricing, and CTA.";
+  "Design a premium event marketing website for a SaaS that helps teams measure ROI from conferences. Use a soft lilac-to-indigo gradient, a pill nav, a bold stacked headline with a highlighted word, and a glassy hero card. Include social proof, feature grid, pricing, and CTA.";
 
 const sampleUrl = "https://attendflowio.lovable.app/";
 
