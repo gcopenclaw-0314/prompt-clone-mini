@@ -6,15 +6,24 @@ export async function generateHtml({
   system,
   user,
   model,
+  imageDataUrl,
 }: {
   system: string;
   user: string;
   model: string;
+  imageDataUrl?: string;
 }) {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     throw new Error("Missing OPENAI_API_KEY env var.");
   }
+
+  const userContent = imageDataUrl
+    ? [
+        { type: "text", text: user },
+        { type: "image_url", image_url: { url: imageDataUrl } },
+      ]
+    : user;
 
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
@@ -24,11 +33,11 @@ export async function generateHtml({
     },
     body: JSON.stringify({
       model,
-      temperature: 0.7,
-      max_tokens: 1800,
+      temperature: 0.6,
+      max_tokens: 2000,
       messages: [
         { role: "system", content: system },
-        { role: "user", content: user },
+        { role: "user", content: userContent },
       ],
     }),
   });

@@ -11,6 +11,7 @@ export default function Home() {
   const [mode, setMode] = useState<"prompt" | "url">("prompt");
   const [prompt, setPrompt] = useState(samplePrompt);
   const [url, setUrl] = useState(sampleUrl);
+  const [viewport, setViewport] = useState<"mobile" | "desktop">("mobile");
   const [html, setHtml] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -26,10 +27,12 @@ export default function Home() {
       mode: requestMode,
       prompt: requestPrompt,
       url: requestUrl,
+      viewport: requestViewport,
     }: {
       mode: "prompt" | "url";
       prompt: string;
       url: string;
+      viewport: "mobile" | "desktop";
     }) => {
       setLoading(true);
       setError(null);
@@ -43,7 +46,7 @@ export default function Home() {
             body:
               requestMode === "prompt"
                 ? JSON.stringify({ prompt: requestPrompt })
-                : JSON.stringify({ url: requestUrl }),
+                : JSON.stringify({ url: requestUrl, viewport: requestViewport }),
           }
         );
 
@@ -64,8 +67,8 @@ export default function Home() {
   );
 
   const handleGenerate = useCallback(() => {
-    return requestGenerate({ mode, prompt, url });
-  }, [mode, prompt, requestGenerate, url]);
+    return requestGenerate({ mode, prompt, url, viewport });
+  }, [mode, prompt, requestGenerate, url, viewport]);
 
   function handleClear() {
     setHtml("");
@@ -80,10 +83,13 @@ export default function Home() {
     const demoMode = (params.get("mode") as "prompt" | "url") || mode;
     const demoPrompt = params.get("prompt") || prompt;
     const demoUrl = params.get("url") || url;
+    const demoViewport =
+      (params.get("viewport") as "mobile" | "desktop") || viewport;
 
     setMode(demoMode);
     setPrompt(demoPrompt);
     setUrl(demoUrl);
+    setViewport(demoViewport);
 
     hasAutoRun.current = true;
     setTimeout(() => {
@@ -91,9 +97,10 @@ export default function Home() {
         mode: demoMode,
         prompt: demoPrompt,
         url: demoUrl,
+        viewport: demoViewport,
       });
     }, 50);
-  }, [mode, prompt, requestGenerate, url]);
+  }, [mode, prompt, requestGenerate, url, viewport]);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -169,9 +176,33 @@ export default function Home() {
                   value={url}
                   onChange={(event) => setUrl(event.target.value)}
                 />
+                <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
+                  <span>Viewport:</span>
+                  <button
+                    className={`rounded-full border px-3 py-1 transition ${
+                      viewport === "mobile"
+                        ? "border-indigo-400 bg-indigo-50 text-indigo-700"
+                        : "border-slate-200"
+                    }`}
+                    onClick={() => setViewport("mobile")}
+                    type="button"
+                  >
+                    Mobile
+                  </button>
+                  <button
+                    className={`rounded-full border px-3 py-1 transition ${
+                      viewport === "desktop"
+                        ? "border-indigo-400 bg-indigo-50 text-indigo-700"
+                        : "border-slate-200"
+                    }`}
+                    onClick={() => setViewport("desktop")}
+                    type="button"
+                  >
+                    Desktop
+                  </button>
+                </div>
                 <p className="text-xs text-slate-500">
-                  The app will fetch the public HTML, infer layout and styling, then generate
-                  a fresh, original site with the same visual rhythm.
+                  The app grabs a screenshot + HTML to mimic layout, typography, and spacing.
                 </p>
               </div>
             )}

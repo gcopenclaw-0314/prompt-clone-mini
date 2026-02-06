@@ -19,5 +19,6 @@ npm run dev
 
 ## Notes
 - The generator returns plain HTML using Tailwind CDN so the preview renders instantly.
-- URL clone fetches public HTML, strips scripts/styles, and asks the model to mimic layout + style.
-- For best “visual match,” iterate by tightening prompts or providing a focused URL page.
+- URL clone now captures a **screenshot + HTML** (via puppeteer-core + system Chrome) to better mimic layout/typography.
+- Set `CHROME_PATH=/usr/bin/google-chrome-stable` if needed.
+- For best visual match, use the Mobile viewport toggle when cloning mobile-first designs.

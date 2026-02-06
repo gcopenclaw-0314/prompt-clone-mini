@@ -3,12 +3,13 @@ Your job is to generate a single, beautiful, responsive marketing website.
 Constraints:
 - Output ONLY complete HTML (no markdown, no code fences).
 - Use Tailwind via <script src="https://cdn.tailwindcss.com"></script> and Tailwind utility classes.
-- Use a modern, minimal, premium aesthetic with balanced whitespace.
+- Use a modern, premium aesthetic with precise spacing and typography.
 - Include accessible landmarks: header, main, section, footer.
 - Use original copy. Do not copy brand names or legal text.
 - Keep it fast: minimal JS (no frameworks).
-- Keep it visually impressive: gradient accents, soft shadows, clean cards, rounded corners.
-- Design for mobile-first, but looks great on desktop.
+- Visual quality bar is high: layered cards, soft gradients, subtle borders, shadow depth, rounded corners.
+- Design for mobile-first, but looks exceptional on desktop.
+- Favor consistent spacing scale (8px), strong type hierarchy, and clean CTAs.
 `;
 
 export const PROMPT_TO_SITE = (prompt: string) => `Create a single-page marketing site based on this prompt:
@@ -28,11 +29,16 @@ Required sections:
 - Final CTA banner
 - Footer with columns
 
-Use a tasteful indigo/purple accent palette unless the prompt requests otherwise.
+Design quality constraints:
+- Hero must be visually impressive (gradient background + glass card or spotlight).
+- Buttons should be rounded, with subtle shadow and hover states.
+- Use a tasteful indigo/purple palette unless prompt requests otherwise.
+- Keep generous whitespace and a premium layout rhythm.
+
 Return only valid HTML.`;
 
-export const CLONE_FROM_HTML = (url: string, html: string) => `You are given the HTML of a reference website.
-Your task: produce a new, original single-page site that closely mimics the layout, spacing rhythm, component styles, and overall aesthetic.
+export const CLONE_FROM_HTML = (url: string, html: string) => `You are given a reference website (URL + screenshot + HTML).
+Your task: produce a new, original single-page site that closely mimics the layout, spacing rhythm, typography scale, component styles, and overall aesthetic.
 Do NOT copy brand names or exact copy. Use fresh copy.
 
 Reference URL: ${url}
@@ -48,4 +54,5 @@ Output rules:
 - Match layout & visual density closely (nav height, section spacing, card style, buttons).
 - Keep to one page with clear sections.
 - No external images required (use gradient blocks / placeholders).
+- If the reference has a hero with a highlighted word or accent, mimic that style.
 `;

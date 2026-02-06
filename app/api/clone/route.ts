@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { BASE_SYSTEM_PROMPT, CLONE_FROM_HTML } from "@/lib/prompts";
 import { generateHtml } from "@/lib/openai";
+import puppeteer from "puppeteer-core";
 
 const MAX_HTML_CHARS = 12000;
 
@@ -8,6 +9,7 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
     const url = String(body?.url ?? "").trim();
+    const viewport = String(body?.viewport ?? "mobile");
 
     if (!url || !/^https?:\/\//i.test(url)) {
       return NextResponse.json(
@@ -42,11 +44,35 @@ export async function POST(req: Request) {
       .replace(/<style[\s\S]*?<\/style>/gi, "")
       .slice(0, MAX_HTML_CHARS);
 
+    const browser = await puppeteer.launch({
+      headless: true,
+      executablePath:
+        process.env.CHROME_PATH || "/usr/bin/google-chrome-stable",
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
+
+    const page = await browser.newPage();
+    await page.setViewport(
+      viewport === "desktop"
+        ? { width: 1280, height: 720 }
+        : { width: 375, height: 812 }
+    );
+
+    await page.goto(url, { waitUntil: "networkidle2", timeout: 15000 });
+    const screenshotBuffer = await page.screenshot({ fullPage: true });
+    await page.close();
+    await browser.close();
+
+    const imageDataUrl = `data:image/png;base64,${Buffer.from(
+      screenshotBuffer as Buffer
+    ).toString("base64")}`;
+
     const model = process.env.OPENAI_MODEL || "gpt-4o-mini";
     const html = await generateHtml({
       system: BASE_SYSTEM_PROMPT,
       user: CLONE_FROM_HTML(url, cleaned),
       model,
+      imageDataUrl,
     });
 
     return NextResponse.json({ html });
