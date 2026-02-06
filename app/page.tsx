@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const samplePrompt =
   "Design a premium event marketing website for a SaaS that helps teams measure ROI from conferences. Include a crisp hero, social proof, feature grid, pricing, and CTA.";
@@ -14,13 +14,14 @@ export default function Home() {
   const [html, setHtml] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const hasAutoRun = useRef(false);
 
   const previewTitle = useMemo(
     () => (mode === "prompt" ? "Generated from prompt" : "Mimic from URL"),
     [mode]
   );
 
-  async function handleGenerate() {
+  const handleGenerate = useCallback(async () => {
     setLoading(true);
     setError(null);
 
@@ -49,11 +50,21 @@ export default function Home() {
     } finally {
       setLoading(false);
     }
-  }
+  }, [mode, prompt, url]);
 
   function handleClear() {
     setHtml("");
   }
+
+  useEffect(() => {
+    if (hasAutoRun.current) return;
+    const params = new URLSearchParams(window.location.search);
+    const demo = params.get("demo") === "1";
+    if (demo) {
+      hasAutoRun.current = true;
+      handleGenerate();
+    }
+  }, [handleGenerate]);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
