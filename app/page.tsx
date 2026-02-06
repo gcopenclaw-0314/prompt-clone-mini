@@ -21,36 +21,51 @@ export default function Home() {
     [mode]
   );
 
-  const handleGenerate = useCallback(async () => {
-    setLoading(true);
-    setError(null);
+  const requestGenerate = useCallback(
+    async ({
+      mode: requestMode,
+      prompt: requestPrompt,
+      url: requestUrl,
+    }: {
+      mode: "prompt" | "url";
+      prompt: string;
+      url: string;
+    }) => {
+      setLoading(true);
+      setError(null);
 
-    try {
-      const res = await fetch(
-        mode === "prompt" ? "/api/generate" : "/api/clone",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body:
-            mode === "prompt"
-              ? JSON.stringify({ prompt })
-              : JSON.stringify({ url }),
+      try {
+        const res = await fetch(
+          requestMode === "prompt" ? "/api/generate" : "/api/clone",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body:
+              requestMode === "prompt"
+                ? JSON.stringify({ prompt: requestPrompt })
+                : JSON.stringify({ url: requestUrl }),
+          }
+        );
+
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data?.error || "Request failed");
         }
-      );
 
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data?.error || "Request failed");
+        setHtml(data.html);
+      } catch (err) {
+        const message = err instanceof Error ? err.message : "Unknown error";
+        setError(message);
+      } finally {
+        setLoading(false);
       }
+    },
+    []
+  );
 
-      setHtml(data.html);
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Unknown error";
-      setError(message);
-    } finally {
-      setLoading(false);
-    }
-  }, [mode, prompt, url]);
+  const handleGenerate = useCallback(() => {
+    return requestGenerate({ mode, prompt, url });
+  }, [mode, prompt, requestGenerate, url]);
 
   function handleClear() {
     setHtml("");
@@ -60,11 +75,25 @@ export default function Home() {
     if (hasAutoRun.current) return;
     const params = new URLSearchParams(window.location.search);
     const demo = params.get("demo") === "1";
-    if (demo) {
-      hasAutoRun.current = true;
-      handleGenerate();
-    }
-  }, [handleGenerate]);
+    if (!demo) return;
+
+    const demoMode = (params.get("mode") as "prompt" | "url") || mode;
+    const demoPrompt = params.get("prompt") || prompt;
+    const demoUrl = params.get("url") || url;
+
+    setMode(demoMode);
+    setPrompt(demoPrompt);
+    setUrl(demoUrl);
+
+    hasAutoRun.current = true;
+    setTimeout(() => {
+      requestGenerate({
+        mode: demoMode,
+        prompt: demoPrompt,
+        url: demoUrl,
+      });
+    }, 50);
+  }, [mode, prompt, requestGenerate, url]);
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
