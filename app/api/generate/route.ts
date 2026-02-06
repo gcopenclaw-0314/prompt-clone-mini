@@ -14,7 +14,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const model = process.env.OPENAI_MODEL || "gpt-4o";
+    const model = process.env.OPENAI_MODEL || "gpt-5.2";
     const html = await generateHtml({
       system: BASE_SYSTEM_PROMPT,
       user: PROMPT_TO_SITE(prompt),
