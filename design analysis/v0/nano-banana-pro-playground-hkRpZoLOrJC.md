@@ -3,45 +3,50 @@
 ![Screenshot](../images/v0/nano-banana-pro-playground-hkRpZoLOrJC.png)
 
 ## Overview
-A community-shared template page showcasing an interactive “playground” style app. The template page itself is a marketing/detail view with title, author, engagement stats, and a live preview embed plus a primary CTA to open the template in v0.
+An interactive AI image playground powered by **Vercel AI Gateway**. The UI centers on a prompt + multi‑image inputs, with a clear “Run” action and a prominent API‑key requirement gate.
+
+> Note: “Open in new tab” prompts Vercel login in this environment, so the analysis reflects the embedded preview UI (the app itself).
 
 ## Layout
-- **Top nav**: v0 global navigation (Templates/Resources/etc) with auth actions.
-- **Breadcrumbs**: category trail (e.g., Templates → AI → …).
-- **Header block**:
-  - Large H1 title
-  - Author avatar/name + lightweight metadata (likes, views, forks/uses, pricing/free)
-  - Action cluster (like, open in v0)
-- **Preview area**: large embedded preview/iframe with its own toolbar (viewport controls, refresh/open-new, fullscreen).
-- **Below-the-fold (typical on v0 templates)**: description, tags, and/or additional screenshots/content blocks (varies per template).
+- **Brand + title**: v0 logo and “Nano Banana Pro” header with a provider link.
+- **API key callout**: dark notice card explaining `AI_GATEWAY_API_KEY` requirement with docs link.
+- **Controls row**: model selector + primary prompt input.
+- **Input tabs**: Files / URLs toggle.
+- **Uploads**: two image upload slots (primary + secondary).
+- **Primary action**: wide **Run** button.
+- **Status/preview area**: placeholder image area + “Ready to generate” state.
+- **History**: section header for prior generations.
+- **Footer links**: “Make this app your own,” “How it works,” feedback link.
 
 ## UX patterns
-- Clear **primary CTA** (“Open in v0”) placed in the header.
-- **Social proof** via view/like counters next to author.
-- **Embedded live preview** to reduce friction before opening/duplicating.
-- Breadcrumbs to support back-navigation to the category listing.
+- Clear gating via API‑key alert to set expectations.
+- Multi‑input design supports image‑to‑image + prompt workflows.
+- Large, singular CTA keeps the flow simple.
 
 ## Animations
-Minimal—primarily standard hover/focus states on links and buttons; any motion is likely limited to subtle transitions on controls.
+Likely minimal (hover/focus states, subtle transitions); utility‑first UI rather than motion‑heavy.
 
 ## Visual style
-- Clean, neutral, product-doc aesthetic.
-- Large typographic hierarchy (bold H1).
-- Plenty of whitespace with card-like containers.
-- Dark preview content framed within a light page chrome.
+- Dark workspace card on a light page shell.
+- Monospace‑like input feel with high contrast.
+- Utility layout prioritizing function over decoration.
 
 ## Components
-- Global header/navigation bar
-- Breadcrumb component
-- Title + metadata row (avatar, counters, badges)
-- Primary button + icon buttons (like, share/open)
-- Preview/embed frame with toolbar controls
+- Prompt textbox + model dropdown
+- Tab switch (Files / URLs)
+- Upload dropzones (2)
+- Alert/notice card
+- Primary CTA button
+- Status/preview area
+- History list
 
 ## Framework/stack (inferred)
-- v0 templates are typically implemented with **Next.js + React**, styled with **Tailwind CSS**, and composed with **shadcn/ui** components (Radix primitives under the hood).
+- **Next.js + React**
+- **Tailwind CSS**
+- **shadcn/ui** (Button, Tabs, Input, Card)
 
 ## Prompt cues to recreate
-- “Create a template detail page with a global top nav, breadcrumbs, and a hero header containing: large title, author avatar/name, view/like counters, and a primary ‘Open in v0’ button.”
-- “Below the header, add a large embedded preview frame with a toolbar (viewport selector, refresh, fullscreen).”
-- “Use a minimal neutral UI, lots of whitespace, and clear typographic hierarchy (H1 + muted metadata).”
-- “Implement with Next.js/React, Tailwind, and shadcn/ui; use Button, Breadcrumb, Avatar, Badge, Card, and icon buttons.”
+- “Build an AI image playground with a prompt input, model selector, and two image upload slots.”
+- “Add an API‑key requirement notice card with a docs link.”
+- “Place a wide primary ‘Run’ button below inputs and a ‘History’ section beneath.”
+- “Use a dark workspace panel on a light shell for contrast.”

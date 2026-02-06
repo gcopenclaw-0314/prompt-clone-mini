@@ -3,44 +3,46 @@
 ![Screenshot](../images/lovable/bold-love-wedding.jpg)
 
 ## Overview
-A poster‑inspired wedding template with bold typography, graphic shapes, and high‑contrast colors. It’s designed for couples or agencies who want a distinctive, statement‑making wedding site.
+A bold, poster‑style one‑page wedding site with oversized typography, graphic blocks, and a strong editorial vibe. It’s structured as a narrative story + event details + RSVP flow, designed to feel premium and memorable.
 
 ## Layout
-- **Header + CTA** and “Preview / Create” tabs.
-- **Hero preview frame** with bold typographic centerpiece and graphic waves.
-- **Key Highlights** list emphasizing fast launch and brand flexibility.
-- **Features & Capabilities** accordion list.
-- **Deep narrative** sections for use cases and setup steps.
-- **Related templates + footer**.
+- **Hero**: date ribbon, giant couple names, and a short invitation line with a scroll cue.
+- **Story section**: large photo + multi‑paragraph story with a 3‑stat row (Years / Adventures / Forever).
+- **Details section**: “The I Do’s” + “The Party” cards with icons, time, venue, and address.
+- **Dress code callout**: compact alert‑style strip.
+- **Moments gallery**: dark section with a photo grid.
+- **Calendar highlight**: oversized date treatment (month / day / year) with heart icons.
+- **RSVP CTA**: headline, short note, and a mailto‑based “RSVP Now” button.
+- **Footer**: initials mark, date/location line, closing note.
 
 ## UX patterns
-- Strong visual identity communicates uniqueness quickly.
-- Preview frame used as primary persuasion asset.
-- Accordion supports dense feature list without visual clutter.
+- Long‑scroll narrative with clear section headers for quick scanning.
+- Strong visual hierarchy makes key logistics (date/venue) pop.
+- Simple RSVP via mailto keeps friction low.
 
 ## Animations
-- Subtle hover states, tab switching.
-- Potential parallax or graphic motion hinted by “bold/graphic” styling, but likely minimal.
+Minimal—likely subtle hover states and smooth scroll behavior; the design relies on static graphic impact rather than heavy motion.
 
 ## Visual style
-- Bold serif/sans pairing with big, centered names.
-- Bright accent blocks and graphic divider shapes.
-- High contrast with clean whitespace.
+- Bold serif display for names + clean sans for body text.
+- Cream/pink base with red accents and deep navy gallery section.
+- Graphic blocks, ribbons, and divider shapes for poster feel.
 
 ## Components
-- Nav header + CTA buttons
-- Preview frame (image/iframe)
-- Highlights card list
-- Accordion features
-- Long‑form sections
-- Related template cards
+- Hero typography block + date ribbon
+- Story card (image + text)
+- Stat row (3 KPIs)
+- Detail cards (ceremony + reception)
+- Callout badge (dress code)
+- Gallery grid
+- CTA button + footer
 
 ## Framework/stack (inferred)
-- **Next.js + React**
+- **React / Next.js**
 - **Tailwind CSS**
-- **shadcn/ui**
+- **shadcn/ui** (buttons, cards, typography)
 
 ## Prompt cues to recreate
-- “Design a bold, poster‑inspired wedding template page with oversized type and graphic color blocks.”
-- “Use a framed hero preview with wave/shape accents and strong contrast.”
-- “Include highlights, accordion features, and long setup narrative.”
+- “Create a bold, poster‑style wedding one‑pager with oversized serif names and red accent blocks.”
+- “Structure sections: Hero → Story + stats → Details cards (ceremony/reception) → Gallery → RSVP.”
+- “Use a cream/pink palette with navy gallery section and strong typographic hierarchy.”
