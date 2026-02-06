@@ -18,6 +18,50 @@ export async function generateHtml({
     throw new Error("Missing OPENAI_API_KEY env var.");
   }
 
+  const isGpt5 = model.startsWith("gpt-5");
+
+  if (isGpt5) {
+    const inputContent = [
+      { type: "input_text", text: user },
+      ...(imageDataUrl
+        ? [{ type: "input_image", image_url: imageDataUrl }]
+        : []),
+    ];
+
+    const res = await fetch("https://api.openai.com/v1/responses", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model,
+        instructions: system,
+        input: [{ role: "user", content: inputContent }],
+        max_output_tokens: 2000,
+      }),
+    });
+
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`OpenAI error: ${text}`);
+    }
+
+    const data = await res.json();
+    const outputText =
+      data.output_text ||
+      (Array.isArray(data.output)
+        ? data.output
+            .flatMap((item: { content?: Array<{ text?: string }> }) =>
+              item.content || []
+            )
+            .map((part: { text?: string }) => part.text || "")
+            .join("")
+        : "");
+
+    return stripCodeFences(String(outputText || "").trim());
+  }
+
   const userContent = imageDataUrl
     ? [
         { type: "text", text: user },
