@@ -34,7 +34,7 @@ export async function generateHtml({
     body: JSON.stringify({
       model,
       temperature: 0.6,
-      max_tokens: 2000,
+      max_completion_tokens: 2000,
       messages: [
         { role: "system", content: system },
         { role: "user", content: userContent },
