@@ -3,40 +3,44 @@
 ![Screenshot](../images/v0/globe-to-map-transform-99MAOQptgL3.png)
 
 ## Overview
-A component demo showcasing an interactive visualization that morphs a 3D globe into a 2D equirectangular map. The preview uses a dark, presentation-style layout with descriptive text and a large visualization viewport.
+A single-purpose, dark “demo page” showcasing an interactive visualization that morphs a 3D wireframe globe into a 2D equirectangular map. The embedded preview presents a short explanatory hero followed by a large, centered visualization viewport.
 
 ## Layout
-- **v0 shell** with breadcrumbs (Templates → Components → …).
-- **Header**: title, author + engagement, “Free”, “Open in v0”.
-- **Embedded preview**:
-  - Dark hero header inside the preview with title + short description.
-  - Large visualization container below (globe wireframe visible).
+- **v0 shell** (marketing/detail wrapper) with breadcrumbs.
+- **Template header**: title, author, stats, “Free”, and an “Open in v0” CTA.
+- **Embedded preview iframe**:
+  - Dark hero block with title + one-sentence description.
+  - Large black canvas area underneath showing the globe (wireframe meridians/parallels + coastlines).
+  - Small preview toolbar above the iframe (device, open/external, refresh, fullscreen).
 
 ## UX patterns
-- Educational/demo format: explain the interaction in a sentence, then show the interactive canvas.
-- Likely includes controls (slider/toggle) to drive the transform, plus drag-to-rotate when in globe mode.
+- “Explain then show”: short copy sets context for the interaction.
+- The visualization reads like a **canvas/WebGL** component meant to be dragged/controlled (even if controls aren’t visible in the capture).
+- Minimal surrounding UI to keep attention on the visual.
 
-## Animations
-Core animation is the **smooth morph** between globe projection and flat map projection; likely continuous interpolation with easing. Expect WebGL/canvas-based rendering.
+## Motion / interaction
+- Primary motion: a **smooth, continuous morph** between spherical and flat projections.
+- Likely includes:
+  - Drag-to-rotate (globe state)
+  - A morph progress control (slider) or toggle
+  - Subtle easing / inertia
 
 ## Visual style
-- Dark, “tech demo” vibe.
-- High-contrast wireframe globe.
-- Minimal UI chrome to keep attention on the visualization.
+- Dark, high-contrast “tech demo” look.
+- Thin, bright wireframe lines against near-black.
+- Generous padding and rounded container edges.
 
-## Components
-- Preview frame
-- (Inside preview)
-  - Title + description block
-  - Canvas/WebGL visualization component
-  - Potential controls: slider, toggle buttons, tooltips, reset
+## Components (inside preview)
+- Page container (dark)
+- Heading + supporting text
+- Visualization canvas (globe/map)
+- Optional controls (slider/toggle/reset)
 
 ## Framework/stack (inferred)
-- Surrounding template: **Next.js + React** with **Tailwind CSS** and **shadcn/ui**.
-- Visualization: likely **Canvas/WebGL** (e.g., Three.js) or D3 + canvas for projections.
+- Page wrapper: **Next.js/React** + **Tailwind CSS** + **shadcn/ui**.
+- Viz: **Canvas/WebGL** (often Three.js) or canvas-based projection math.
 
 ## Prompt cues to recreate
-- “Build an interactive visualization that morphs a 3D globe into a 2D equirectangular map with a smooth animated transition.”
-- “Use a dark demo page: title + one-line description, then a large centered canvas.”
-- “Add controls for morph progress (0–1 slider), drag-to-rotate in globe mode, and a reset button.”
-- “Implement in Next.js/React + Tailwind; optionally use Three.js for rendering; use shadcn/ui for controls.”
+- “Create a dark demo page with a title/description and a large visualization card below.”
+- “Render a wireframe globe with graticule lines and coastlines; morph it into a 2D equirectangular map with a smooth interpolated transition.”
+- “Support drag-to-rotate in globe mode and a morph slider (0–1) with easing/inertia; add a reset.”

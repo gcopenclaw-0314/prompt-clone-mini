@@ -3,43 +3,43 @@
 ![Screenshot](../images/v0/infinite-scrolling-images-mE2nwltmoDT.png)
 
 ## Overview
-An animation-focused template demonstrating an “infinite scrolling” (looping) image carousel/marquee effect. The preview shows stacked/overlapping image cards on a dark stage, implying continuous horizontal (or vertical) motion.
+An animation pattern demo: an **infinite scrolling / looping** image carousel that reads like a continuous marquee of image cards. In the embedded preview, the visuals are presented on a black stage with a layered stack of rounded image cards (a “deck” look).
 
 ## Layout
-- **v0 template shell**: global nav + breadcrumbs.
-- **Header**: title, author + engagement, “Free”, CTA to open in v0.
-- **Embedded preview**:
-  - Dark background container
-  - Layered image/card stack with rounded corners
-  - Likely an infinite loop track behind the foremost card
+- **v0 template detail wrapper**: header/nav + breadcrumbs + template metadata.
+- **Embedded preview iframe**:
+  - Full-bleed dark background.
+  - A prominent, large rounded card in the foreground.
+  - Multiple image cards stacked behind it, offset vertically to create depth.
+  - Preview toolbar above the iframe (device, open/external, refresh, fullscreen).
 
 ## UX patterns
-- Component/demo template: focus is on a single motion pattern.
-- Preview-first evaluation.
-- Clear CTA to reuse (“Open in v0”).
+- Single-feature component showcase (the motion is the product).
+- Likely includes hover affordances such as pause-on-hover and/or grab cursor.
 
-## Animations
-Primary animation is the **infinite loop** scrolling of images/cards (marquee/carousel). Expect CSS keyframes or requestAnimationFrame-driven transform translating a duplicated track; pauses may occur on hover.
+## Motion / interaction
+- Core motion: **seamless looping translation** of an image track (usually translateX) by duplicating content.
+- Common enhancements (probable):
+  - Gradient edge masks to fade cards in/out.
+  - Pause on hover / focus.
+  - Constant speed with linear easing.
 
 ## Visual style
-- Dark canvas to spotlight the component.
-- Rounded, elevated image cards with subtle shadows.
-- Overlap/stacking for depth.
+- Dark, high-contrast stage.
+- Large-radius cards with soft shadows.
+- Overlapping “stacked” composition to imply abundance/continuity.
 
-## Components
-- Breadcrumb, header metadata, action buttons
-- Preview frame
-- (Inside preview)
-  - Carousel/marquee track
-  - ImageCard components (rounded, shadow)
-  - Possibly gradient masks/fades at edges
+## Components (inside preview)
+- Marquee/track container (overflow hidden)
+- Duplicated image list for seamless loop
+- ImageCard (rounded, shadow)
+- Optional edge mask gradients
 
 ## Framework/stack (inferred)
-- **Next.js + React** composition.
-- **Tailwind CSS** for layout and styling.
-- **shadcn/ui** for buttons/cards in the surrounding template; the marquee is custom React/CSS.
+- **Next.js/React** + **Tailwind CSS**.
+- Surrounding template uses **shadcn/ui**; marquee itself is typically custom CSS/keyframes.
 
 ## Prompt cues to recreate
-- “Build an infinite scrolling image marquee: duplicate the image list to create a seamless loop; animate translateX continuously; add gradient edge masks and pause-on-hover.”
-- “Use a dark background stage and layered/stacked image cards with rounded corners and subtle shadows.”
-- “Implement in Next.js/React with Tailwind; use shadcn/ui Card/Button for surrounding UI if needed.”
+- “Create an infinite scrolling image marquee by duplicating the list and animating translateX continuously (linear).”
+- “Render image cards with large rounded corners and subtle shadows on a pure black background; stack a few cards with offsets for a deck-like composition.”
+- “Add gradient edge masks and pause-on-hover for usability.”
