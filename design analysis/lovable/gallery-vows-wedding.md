@@ -3,45 +3,48 @@
 ![Screenshot](../images/lovable/gallery-vows-wedding.jpg)
 
 ## Overview
-A gallery‑first wedding template that emphasizes photography and editorial presentation. The hero preview is minimal and typographic, with the image story living deeper in the layout.
+A gallery‑inspired wedding site with curatorial language, minimalist typography, and museum‑style navigation. It frames the wedding as an “exhibition,” combining story chronology, curated works, venue, and RSVP.
 
 ## Layout
-- **Lovable header + CTA** at top.
-- **Template title block** with short description and “Preview / Create” tabs.
-- **Hero preview frame** showing a minimalist wedding landing with large typography.
-- **Key Highlights** value list.
-- **Features & Capabilities** accordion list.
-- **Detailed narrative**: about, audience fit, use cases, setup steps.
-- **Related templates + footer**.
+- **Top nav**: “M+E — 2025” badge and section anchors (Exhibition, Chronology, The Works, Venue, RSVP).
+- **Hero**: couple names with gallery‑style captioning and date line.
+- **Chronology**: vertical story milestones with short, poetic captions.
+- **The Works**: curated image grid with exhibit‑style labels.
+- **Venue**: location copy, address, map link, and featured venue image.
+- **Schedule**: time‑based itinerary cards.
+- **Dress code + Photography** notes.
+- **RSVP**: simple form with attendance buttons, guest count, dietary notes, message.
+- **Footer**: contact email, social handle, hashtag, and back‑to‑top.
 
 ## UX patterns
-- Emphasis on “gallery” and storytelling; copy reinforces visual storytelling.
-- Preview frame acts as proof‑of‑quality before the long explanation.
-- Accordion keeps dense features scannable.
+- Section anchor navigation for quick jumping in a long scroll.
+- Editorial tone reinforces premium/curated feel.
+- Minimalist form to reduce RSVP friction.
 
 ## Animations
-- Micro‑interactions on buttons and feature accordions.
-- Smooth hover states for cards/links.
+Likely subtle (hover + anchor scroll). The aesthetic leans static, gallery‑like.
 
 ## Visual style
-- Very light, gallery‑white background.
-- Elegant serif + sans mix for editorial tone.
-- Minimal framing around the preview to spotlight typography.
+- High‑white space, museum catalog vibe.
+- Clean serif/sans pairing with thin rules and understated accents.
+- Image tiles labeled like exhibit plaques.
 
 ## Components
-- Header navigation + auth CTAs
-- Preview frame
-- Highlights list (icon + text)
-- Accordion list
-- Long‑form article blocks
-- Related template cards
+- Anchor nav bar
+- Section headers with sublabels
+- Timeline list
+- Gallery grid
+- Venue card + map link
+- Schedule list
+- RSVP form + buttons
+- Footer contact + hashtag
 
 ## Framework/stack (inferred)
-- **Next.js + React**
+- **React / Next.js**
 - **Tailwind CSS**
-- **shadcn/ui** for cards/accordions/buttons
+- **shadcn/ui**
 
 ## Prompt cues to recreate
-- “Create a gallery‑style wedding template page with minimal hero preview and editorial typography.”
-- “Use a white background, thin borders, and an art‑gallery tone.”
-- “Provide highlights + accordion features + long‑form narrative sections.”
+- “Create a wedding site styled like a contemporary art gallery exhibition.”
+- “Use anchor navigation, a chronology timeline, and a curated gallery grid with exhibit labels.”
+- “Keep typography minimal and whitespace heavy; add venue, schedule, and RSVP sections.”

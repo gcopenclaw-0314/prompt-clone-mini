@@ -3,44 +3,44 @@
 ![Screenshot](../images/lovable/ivory-whispers-wedding.jpg)
 
 ## Overview
-A soft, minimal wedding template centered on elegance and simplicity. The ivory palette, delicate typography, and restrained layout make it feel timeless and understated.
+A soft, romantic wedding one‑pager with literary storytelling and understated elegance. The design uses generous whitespace, delicate serif typography, and warm neutral tones to feel intimate and timeless.
 
 ## Layout
-- **Top nav + CTA** and template header.
-- **Preview/Create tabs** above the hero frame.
-- **Hero preview frame** with minimalist wedding card aesthetic.
-- **Key Highlights** section.
-- **Features & Capabilities** accordion.
-- **Long narrative** sections and onboarding steps.
-- **Related templates + footer**.
+- **Hero**: couple names, date line, and venue title with a subtle scroll cue.
+- **Photo trio**: three portrait images in a row for mood‑setting.
+- **Our Story**: long‑form narrative in four chapters (Spring 2019 → Now) with pull quotes.
+- **Celebration**: two feature cards (Ceremony + Reception) with venue images and info.
+- **Gentle Notes**: attire, unplugged ceremony, accommodations.
+- **RSVP**: full form (name, email, attendance, guests, dietary, message) + CTA.
+- **Footer**: closing line with couple names + date.
 
 ## UX patterns
-- Minimal hero to communicate calm and clarity.
-- Value props delivered in short highlight list, then deeper accordion details.
-- Strong onboarding guidance in step list.
+- Scroll‑first storytelling; content reads like a letter.
+- Clear separation between narrative and logistics.
+- RSVP form structured for full guest details.
 
 ## Animations
-- Minimal motion: hover/focus states and accordion transitions.
+Minimal, likely subtle hover and smooth scroll. Emotional impact comes from typography and spacing.
 
 ## Visual style
-- Ivory and soft beige palette.
-- Fine‑weight serif typography and lots of whitespace.
-- Clean framing with subtle borders/shadows.
+- Ivory/cream palette with warm brown accents.
+- Elegant serif titles and airy body copy.
+- Calm, poetic tone supported by ample whitespace.
 
 ## Components
-- Header nav + CTAs
-- Preview frame
-- Highlights card list
-- Accordion feature list
-- Long‑form article sections
-- Related template cards
+- Hero title block
+- Image gallery trio
+- Long‑form story sections
+- Venue cards
+- Notes list
+- RSVP form + CTA
 
 ## Framework/stack (inferred)
-- **Next.js + React**
+- **React / Next.js**
 - **Tailwind CSS**
-- **shadcn/ui**
+- **shadcn/ui** (forms + buttons)
 
 ## Prompt cues to recreate
-- “Design a minimalist wedding template page with ivory palette, delicate serif type, and lots of whitespace.”
-- “Use a simple framed hero preview, highlight list, and accordion features.”
-- “Keep interactions subtle and elegant.”
+- “Design a soft, romantic wedding one‑pager with lots of whitespace and elegant serif typography.”
+- “Include a three‑photo row, long‑form story chapters, and two venue cards.”
+- “Add a detailed RSVP form and gentle notes for attire and accommodations.”
