@@ -1,46 +1,52 @@
-# Editorial Agency Portfolio — Website Template
+# Editorial Agency Portfolio — Preview UI Analysis
 
 ![Screenshot](../images/lovable/editorial-agency-portfolio.jpg)
 
 ## Overview
-A professional agency portfolio template with editorial polish. It frames the work as sophisticated and premium, with case studies as the core storytelling unit.
+A minimal, editorial portfolio for a creative/agency persona ("Julien Moreau"). The experience is image-first: a full-bleed featured project hero followed by a curated “Selected Work” grid and a typographic, poster-like footer wordmark.
 
-## Layout
-- **Header + CTA** with template title and description.
-- **Hero preview frame** showing a typographic editorial block.
-- **Key Highlights** list.
-- **Features & Capabilities** accordion.
-- **Long‑form narrative** about the template, audience, and steps.
-- **Related templates + footer**.
+## Page structure
+- **Top navigation (sticky at top)**
+  - Left: brand/name “Julien Moreau”
+  - Right: links **Work**, **About**, **Contact**
+- **Featured project hero**
+  - Full-bleed background image with dark overlay for legibility
+  - Left-aligned label (project/client) + large title (2-line editorial headline)
+  - Right-side slide indicator (e.g., **02/06**) suggesting a carousel of featured projects
+- **Intro statement**
+  - Prominent single-sentence positioning line (H2-size) under the hero
+- **Selected Work section**
+  - Grid/list of project cards with thumbnail image
+  - Each card includes: project title + short descriptor
+  - Cards read as links into case-study detail pages (e.g., `/work/...`)
+- **Footer (multi-column + wordmark)**
+  - Columns: **Contact** (email), **Social** (LinkedIn/Twitter), **Work** (external link like “View on Dribbble”), plus a small newsletter field
+  - Oversized typographic mark **“JULIEN.”** occupying the bottom area
+  - Small copyright + “Website design by …”
+- **Lovable badge**
+  - Floating “Edit with Lovable” badge in the corner with dismiss button
 
 ## UX patterns
-- Portfolio value proposition first, then detailed feature validation.
-- Preview frame acts as credibility anchor.
-- Step‑by‑step onboarding reduces friction for adoption.
+- **Carousel-style hero** communicates breadth of work before scrolling.
+- **Strong information scent**: hero + grid both click through to detailed work pages.
+- **Editorial hierarchy**: short label → large headline → supporting descriptor.
+- **Minimal navigation** keeps focus on projects.
 
-## Animations
-- Subtle hover states on CTA/buttons.
-- Accordion micro‑motion for feature disclosure.
+## Visual design
+- **High-contrast, magazine-like typography** with generous spacing.
+- **Image-led** layout; text overlays are restrained and left-aligned.
+- **Black/white neutral palette** (hero overlay + footer) with a bold, poster footer wordmark.
 
-## Visual style
-- Editorial, muted palette with strong typographic hierarchy.
-- Large, framed preview and calm whitespace.
-- Professional, understated presentation.
+## Components inventory
+- Top nav (brand + 3 links)
+- Featured hero carousel slide (image + overlay text + slide count)
+- Statement/mission heading
+- Project grid cards (image + title + description)
+- Footer columns (contact/social/work + newsletter)
+- Oversized wordmark footer
+- Lovable “Edit with Lovable” badge
 
-## Components
-- Top navigation + CTA
-- Preview frame
-- Highlights list
-- Accordion features
-- Long‑form sections
-- Related template cards
-
-## Framework/stack (inferred)
-- **Next.js + React**
-- **Tailwind CSS**
-- **shadcn/ui**
-
-## Prompt cues to recreate
-- “Create a premium agency portfolio template page with editorial typography and a framed hero preview.”
-- “Use highlight cards, accordion features, and detailed onboarding sections.”
-- “Keep the palette muted and professional.”
+## Notes for recreation
+- Use a **fullscreen featured work carousel** with a slide counter (e.g., `02/06`).
+- Keep **copy tight** (title + one-line descriptor).
+- Add a **bold typographic footer wordmark** to end the page with brand presence.

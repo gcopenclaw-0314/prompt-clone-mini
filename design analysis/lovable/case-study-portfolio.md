@@ -1,46 +1,64 @@
-# Case Study Portfolio — Website Template
+# Case Study Portfolio — Preview UI Analysis
 
 ![Screenshot](../images/lovable/case-study-portfolio.jpg)
 
 ## Overview
-A case‑study‑driven portfolio template tailored to consultants, studios, and agencies. The preview highlights a hero statement and card‑based case study grid.
+A modern product-designer case study portfolio for “Sarah Mitchell”. The homepage combines a strong positioning statement, clear contact CTAs, a stacked list of large case-study cards, and credibility sections for speaking/writing.
 
-## Layout
-- **Header + template title** with preview/create tabs.
-- **Hero preview frame** showing a headline and card layout.
-- **Key Highlights** list.
-- **Features & Capabilities** accordion.
-- **Long narrative** including use cases and setup steps.
-- **Related templates + footer**.
+## Page structure
+- **Header**
+  - Left: avatar + name + location
+  - Right: navigation links (**Work**, **Contact**) and a **theme toggle**
+- **Hero**
+  - Large headline: “Designing digital products…”
+  - Short supporting bio line (role + current position)
+  - Primary CTAs: **Email me** and **Let’s connect** (LinkedIn)
+- **Services / entry points**
+  - Small section: “How can I help you?”
+  - Two cards:
+    - **Design Request** (“Let’s talk about your project needs.”)
+    - **Consulting** (“Sharing 10+ years of expertise.”)
+  - Both route to email links
+- **Selected work**
+  - Vertical list of **large image cards** with:
+    - index counter (e.g., **01/06**)
+    - client + date range
+    - case study title
+  - Each card links to `/project/...`
+- **Speaking**
+  - List of talks/podcast/panel/workshop items with label + title + venue
+- **Writing**
+  - List of articles with title + publication
+- **Closing CTA band**
+  - Friendly outro + **Email me** + **Download resume**
+- **Footer**
+  - Email + social icons/links (LinkedIn/Twitter/Instagram)
+- **Lovable badge**
+  - Floating “Edit with Lovable” badge
 
 ## UX patterns
-- Case study cards provide immediate evidence of work quality.
-- Preview frame is used as proof of layout structure.
-- Accordion keeps feature details skimmable.
+- **Clear conversion paths** (email + LinkedIn repeated).
+- **Case study index** supports sequential browsing and communicates depth.
+- **Credibility add-ons** (speaking, writing) reinforce seniority.
+- **Theme toggle** suggests light/dark support.
 
-## Animations
-- Subtle hover on cards and CTAs.
-- Accordion transitions.
+## Visual design
+- Light, neutral background with subtle lavender/gray tint.
+- Card-based layout with generous spacing.
+- Big, friendly typography; projects are image-forward.
 
-## Visual style
-- Soft neutral background with muted accents.
-- Card‑based layout for projects.
-- Professional, clean typography.
+## Components inventory
+- Header with avatar + nav + theme toggle
+- Hero headline + CTAs
+- Service cards (mailto links)
+- Case study list cards with counters and meta
+- Speaking list
+- Writing list
+- Outro CTA band + resume button
+- Footer with social links
+- Lovable badge
 
-## Components
-- Nav header + CTA
-- Preview frame
-- Highlight cards
-- Accordion features
-- Long‑form sections
-- Related templates grid
-
-## Framework/stack (inferred)
-- **Next.js + React**
-- **Tailwind CSS**
-- **shadcn/ui**
-
-## Prompt cues to recreate
-- “Create a case‑study portfolio template page with a framed hero preview, headline, and project cards.”
-- “Use neutral palette, clean typography, and structured grid layout.”
-- “Include highlights, accordion features, and onboarding steps.”
+## Notes for recreation
+- Keep the **top-of-page CTA cluster** (Email + LinkedIn).
+- Use **large stacked case-study cards** with an **index counter (01/06)** and metadata.
+- Add **speaking/writing** sections to signal experience.

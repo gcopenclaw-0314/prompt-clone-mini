@@ -1,45 +1,49 @@
-# Parallax Agency Portfolio — Website Template
+# Parallax Agency Portfolio — Preview UI Analysis
 
 ![Screenshot](../images/lovable/parallax-agency-portfolio.jpg)
 
 ## Overview
-A premium agency portfolio template positioned around parallax/scroll‑driven storytelling. The content emphasizes visual depth and narrative flow.
+A stark, high-end agency/consultant portfolio with a dark theme and oversized editorial typography. The homepage is a simple narrative: a bold headline + intro copy, a vertical list of project cards, and a “Let’s connect” footer section.
 
-## Layout
-- **Header + CTA** with template name and preview/create tabs.
-- **Hero preview frame** (light, minimal placeholder area).
-- **Key Highlights** list emphasizing editorial layout and motion.
-- **Features & Capabilities** accordion.
-- **Long narrative** with use cases and onboarding steps.
-- **Related templates + footer**.
+## Page structure
+- **Top bar / header**
+  - Left: name/location block (e.g., “Marco Coppeto”, “Brooklyn, NY”)
+  - Center: small pill-style control with icons (acts like a view toggle or compact navigation)
+  - Right: **Contacts** link
+- **Hero**
+  - Huge multi-line headline: “Shaping what’s next.”
+  - Short paragraph describing services/role
+- **Work list (project index)**
+  - Series of project cards stacked vertically
+  - Each card shows: project name + short description + category tags (e.g., BRAND / FINTECH)
+  - Cards link to detail pages (`/project/...`) and use image previews
+- **Footer contact section**
+  - Heading: “Let’s connect.”
+  - Email link plus three columns of social links (LinkedIn, Twitter, Instagram, Dribbble)
+  - Bottom nav repeats: Work / About / Contact
+  - Copyright line
+- **Lovable badge**
+  - “Edit with Lovable” floating badge + dismiss control
 
 ## UX patterns
-- Emphasis on “parallax” suggests scroll‑based storytelling as the key differentiator.
-- Preview frame is the primary demonstration point.
-- Accordion preserves scanning efficiency.
+- **Minimal routing**: primarily a work index + about/contact pages.
+- **High signal hero**: visitors understand positioning immediately.
+- **Project cards** combine summary + taxonomy (tags) for quick scanning.
 
-## Animations
-- Likely parallax and scroll‑triggered transitions in the actual template.
-- Page shell uses subtle hover/accordion motion.
+## Visual design
+- **Dark-first** (near-black background) with white text.
+- **Oversized typography** and lots of negative space for premium feel.
+- Subtle UI controls (small pill toggle) contrast with large type.
 
-## Visual style
-- Minimal, premium palette with editorial typography.
-- Large whitespace and clean alignment.
+## Components inventory
+- Header (name/location + contacts)
+- Hero headline + lead paragraph
+- Vertical project card list (image + title + description + tags)
+- Contact footer block with social links
+- Bottom navigation links
+- Lovable badge
 
-## Components
-- Nav header + CTA
-- Preview frame
-- Highlights list
-- Accordion features
-- Long‑form sections
-- Related template cards
-
-## Framework/stack (inferred)
-- **Next.js + React**
-- **Tailwind CSS**
-- **shadcn/ui**
-
-## Prompt cues to recreate
-- “Create an agency portfolio template page emphasizing parallax storytelling and editorial design.”
-- “Keep layout minimal with a framed preview and clean typographic hierarchy.”
-- “Include highlight list, accordion features, and onboarding steps.”
+## Notes for recreation
+- Use a **black canvas** and **very large headline type**.
+- Add **project cards with tags** and a **contact-centric footer**.
+- Include a small **header control/toggle pill** as a signature UI element.
