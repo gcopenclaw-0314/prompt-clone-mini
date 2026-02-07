@@ -3,48 +3,43 @@
 ![Screenshot](../images/v0/an-unusual-hero-VZ9EEGUUq9M.png)
 
 ## Overview
-A community “hero section” template with an experimental/atmospheric look. The embedded preview suggests a dark scene with floating pill badges (“Made with Midjourney + v0 by …”) and a prominent CTA (“PROMPT”).
+A landing-page hero concept combining a marketing headline with creator attribution (“Made with Midjourney + v0 by Webrenew”) and a prominent call-to-action. The preview reads as a dark, cinematic hero with an overlaid attribution row and a bright accent button.
 
 ## Layout
-- **Global v0 shell**: top navigation + auth actions.
-- **Breadcrumbs**: Templates → Website Templates → template name.
-- **Template header**:
-  - Large title (“An unusual hero”)
-  - Author + engagement stats + “Free” label
-  - Action buttons (like/share) + “Open in v0”
-- **Embedded preview**:
-  - Dark background/scene
-  - Centered inline cluster: “Made with” + pill badges
-  - Right-aligned prominent button (“PROMPT”)
+- **Hero (full-bleed / centered)**
+  - Large headline: “Transform Your Vision Into Reality”.
+  - Supporting paragraph describing using GSAP animations + Midjourney-generated images/videos.
+  - Primary CTA button: “BUILD WITH v0” (anchors to `#demo`).
+- **Attribution overlay / footer row**
+  - “Made with” label.
+  - Pill-style badges/buttons: “Midjourney”, “v0”, and author “Webrenew”.
+  - Secondary in-page CTA: “PROMPT” (anchors to `#demo`).
+  - Small brand mark/logo.
 
 ## UX patterns
-- Experimental hero intended as a starting point for a landing page.
-- Primary action inside the hero (“PROMPT”) + standard “Open in v0” CTA outside.
-- Social proof and author attribution in the template header.
-
-## Animations
-Likely minimal; hover states on pill badges and buttons. If the hero includes ambient motion (e.g., subtle parallax/grain), it’s not clearly visible in the static capture.
+- Two routes to action:
+  - Traditional hero CTA (“BUILD WITH v0”).
+  - A more “template-specific” CTA (“PROMPT”) that jumps to the demo/prompt section.
+- Attribution is treated as interactive (pill buttons) rather than plain text.
 
 ## Visual style
-- Dark, cinematic hero background.
-- Rounded pill badges with outlined styling.
-- High contrast CTA button with accent color.
-- Minimal chrome; emphasis on mood and typography.
+- Dark gradient/vignette hero background (cinematic look).
+- High-contrast white typography.
+- Rounded pill controls with outline styling.
+- Accent-filled rounded button for emphasis.
 
 ## Components
-- Breadcrumb
-- Avatar/author row + counters
-- Primary button (“Open in v0”) + icon buttons
-- Preview frame
-- (Inside preview) Pill/Badge components, accent Button
+- Hero section (Heading, Paragraph)
+- Primary Button
+- Badge/Pill buttons (attribution)
+- Logo/mark
 
 ## Framework/stack (inferred)
-- Built with **Next.js + React**.
-- Styled using **Tailwind CSS**.
-- UI primitives likely from **shadcn/ui** (Button, Badge, Card, Breadcrumb).
+- **Next.js + React**
+- **Tailwind CSS**
+- Likely **shadcn/ui** primitives (Button/Badge)
 
 ## Prompt cues to recreate
-- “Create a dark, cinematic hero section with centered ‘Made with’ text followed by outlined pill badges (e.g., ‘Midjourney’, ‘v0’, ‘by Webrenew’).”
-- “Add a prominent rounded CTA button on the right labeled ‘PROMPT’ with an accent purple/indigo fill.”
-- “Use lots of negative space, soft gradients/vignette, and crisp white text on black.”
-- “Implement with Next.js/React, Tailwind, shadcn/ui (Badge, Button).”
+- “Design a dark, cinematic hero with a centered H1 and supporting paragraph, plus a primary CTA button.”
+- “Add an attribution row: ‘Made with’ + outlined pill badges for tools and author, and a bright accent ‘PROMPT’ button linking to a demo section.”
+- “Use generous negative space, strong contrast, and rounded, modern UI controls.”
