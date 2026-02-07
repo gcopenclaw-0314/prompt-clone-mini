@@ -3,36 +3,31 @@
 ![Screenshot](../images/v0/an-unusual-hero-VZ9EEGUUq9M.png)
 
 ## Overview
-A landing-page hero concept combining a marketing headline with creator attribution (“Made with Midjourney + v0 by Webrenew”) and a prominent call-to-action. The preview reads as a dark, cinematic hero with an overlaid attribution row and a bright accent button.
+The embedded preview surface is a dark, vignetted hero background that’s currently showing primarily an attribution/credit row rather than the full marketing headline block. The row reads “Made with Midjourney + v0 by Webrenew” and includes a prominent purple **PROMPT** pill button.
 
 ## Layout
-- **Hero (full-bleed / centered)**
-  - Large headline: “Transform Your Vision Into Reality”.
-  - Supporting paragraph describing using GSAP animations + Midjourney-generated images/videos.
-  - Primary CTA button: “BUILD WITH v0” (anchors to `#demo`).
-- **Attribution overlay / footer row**
-  - “Made with” label.
-  - Pill-style badges/buttons: “Midjourney”, “v0”, and author “Webrenew”.
-  - Secondary in-page CTA: “PROMPT” (anchors to `#demo`).
-  - Small brand mark/logo.
+- **Attribution row (top/center of hero)**
+  - Left “Made with” label (stacked words).
+  - Outlined pill chips: **Midjourney**, **v0**, **Webrenew**, separated by a small **+** and “by”.
+  - Right-aligned filled pill button: **PROMPT** (purple/indigo gradient).
+- **Left icon tile**
+  - Small rounded square icon/badge near the left side of the hero canvas.
 
 ## UX patterns
-- Two routes to action:
-  - Traditional hero CTA (“BUILD WITH v0”).
-  - A more “template-specific” CTA (“PROMPT”) that jumps to the demo/prompt section.
-- Attribution is treated as interactive (pill buttons) rather than plain text.
+- Attribution is treated as interactive UI (clickable-looking chips) rather than plain text.
+- Single, high-emphasis CTA in preview: **PROMPT** (filled pill) contrasted against outlined chips.
 
 ## Visual style
-- Dark gradient/vignette hero background (cinematic look).
+- Dark, soft-vignette background (cinematic/spotlit center).
 - High-contrast white typography.
-- Rounded pill controls with outline styling.
-- Accent-filled rounded button for emphasis.
+- Rounded pill chips with thin white outlines.
+- Accent-filled rounded pill button (purple/indigo) for emphasis.
 
 ## Components
-- Hero section (Heading, Paragraph)
-- Primary Button
-- Badge/Pill buttons (attribution)
-- Logo/mark
+- Hero canvas (dark background)
+- Attribution row (label + outlined chips)
+- Primary pill button (PROMPT)
+- Small icon tile/badge
 
 ## Framework/stack (inferred)
 - **Next.js + React**
@@ -40,6 +35,6 @@ A landing-page hero concept combining a marketing headline with creator attribut
 - Likely **shadcn/ui** primitives (Button/Badge)
 
 ## Prompt cues to recreate
-- “Design a dark, cinematic hero with a centered H1 and supporting paragraph, plus a primary CTA button.”
-- “Add an attribution row: ‘Made with’ + outlined pill badges for tools and author, and a bright accent ‘PROMPT’ button linking to a demo section.”
-- “Use generous negative space, strong contrast, and rounded, modern UI controls.”
+- “Design a dark, vignetted hero canvas that primarily showcases an attribution row rather than dense content.”
+- “Add outlined pill chips for tools/author (Midjourney, v0, Webrenew) with small separators (‘+’, ‘by’) and a filled purple ‘PROMPT’ pill button on the right.”
+- “Use high-contrast white type, thin outlines, and lots of negative space.”

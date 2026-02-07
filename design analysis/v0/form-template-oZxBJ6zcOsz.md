@@ -3,23 +3,20 @@
 ![Screenshot](../images/v0/form-template-oZxBJ6zcOsz.png)
 
 ## Overview
-A branded, card-based feedback form with a minimal “ACME” header and a friendly survey prompt. The preview shows a large rounded white card sitting on a pale blue background, presenting a short questionnaire-style flow.
+The embedded preview shows the top portion of a branded form card: a large rounded white panel on a pale blue background with a centered serif wordmark **ACME**. The visible area is mostly the brand header and whitespace, suggesting an editorial, high-breathing-room form layout.
 
 ## Layout
-- **Background**: soft light-blue canvas.
+- **Background**
+  - Soft light-blue canvas.
 - **Centered card**
-  - Large rounded rectangle with generous padding.
-  - Top brand header: “ACME” (high-contrast serif wordmark).
-  - Form content area:
-    - Section title: “What did you think of our service?”
-    - Supporting copy: “Your valuable feedback helps us to do even better next time.”
-    - Time estimate: “Takes less than 2 minutes”.
-    - A disabled state button: “Incomplete Setup” (suggesting a multi-step form / setup gating).
+  - Large rounded rectangle (white) with subtle border/shadow.
+  - Centered brand header: **ACME** (thin, high-contrast serif).
+
+> Note: In the embedded preview crop, the questionnaire text/buttons appear below the fold and are not visible in this capture.
 
 ## UX patterns
-- Survey/feedback framing (short, low-friction).
-- Strong visual hierarchy: brand → question → reassurance/time estimate → action.
-- Disabled CTA communicates incomplete requirements before submission/continuation.
+- Strong “brand-first” hierarchy: centered wordmark before any form fields.
+- Intentional whitespace gives the form an editorial, premium feel.
 
 ## Visual style
 - Clean, editorial feel (serif brand wordmark).
@@ -27,11 +24,9 @@ A branded, card-based feedback form with a minimal “ACME” header and a frien
 - Minimal controls and plenty of whitespace.
 
 ## Components
-- Page background
-- Card container
-- Brand header / wordmark
-- Heading + supporting paragraphs
-- Primary/disabled Button
+- Page background (pastel)
+- Card container (large, rounded)
+- Brand header / wordmark (ACME)
 
 ## Framework/stack (inferred)
 - **Next.js + React**
@@ -39,6 +34,6 @@ A branded, card-based feedback form with a minimal “ACME” header and a frien
 - Likely **shadcn/ui** (Card, Button, Typography)
 
 ## Prompt cues to recreate
-- “Create a centered feedback form card on a soft blue background with a large serif brand header (‘ACME’).”
-- “Include a question heading, supporting text, and a small ‘takes <2 minutes’ note.”
-- “Add a disabled primary button state to indicate an incomplete setup/step.”
+- “Create a minimal form template on a soft blue background with a large centered white rounded card.”
+- “Use an elegant, thin serif wordmark (‘ACME’) centered at the top with lots of breathing room.”
+- “Keep typography editorial and spacing generous; form fields can start below the brand header.”
