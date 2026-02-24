@@ -1,0 +1,52 @@
+import React, { useEffect, useState } from "react";
+
+const FormTemplate = () => {
+        return (
+            <div className="bg-blue-50 min-h-screen flex items-center justify-center p-4 font-serif text-slate-800">
+                <div className="w-full max-w-xl bg-white rounded-3xl shadow-sm p-12 md:p-16 border border-white/50">
+                    <div className="text-center mb-16">
+                        <h1 className="text-4xl md:text-5xl font-light tracking-wide text-slate-900 mb-2">ACME</h1>
+                        <p className="text-sm font-sans uppercase tracking-widest text-slate-400">Application Form</p>
+                    </div>
+
+                    <form className="space-y-8 font-sans" onSubmit={e => e.preventDefault()}>
+                        <div className="space-y-2">
+                            <label className="block text-xs uppercase tracking-widest text-slate-500">Full Name</label>
+                            <input type="text" className="w-full border-b border-slate-200 py-3 focus:outline-none focus:border-slate-800 transition-colors bg-transparent placeholder-slate-300" placeholder="Jane Doe" />
+                        </div>
+
+                        <div className="space-y-2">
+                            <label className="block text-xs uppercase tracking-widest text-slate-500">Email Address</label>
+                            <input type="email" className="w-full border-b border-slate-200 py-3 focus:outline-none focus:border-slate-800 transition-colors bg-transparent placeholder-slate-300" placeholder="jane@example.com" />
+                        </div>
+
+                        <div className="space-y-4 pt-4">
+                            <label className="block text-xs uppercase tracking-widest text-slate-500">Project Type</label>
+                            <div className="grid grid-cols-2 gap-4">
+                                <button className="border border-slate-200 rounded-lg py-4 text-sm hover:border-slate-400 hover:bg-slate-50 transition-colors text-slate-600">
+                                    Branding
+                                </button>
+                                <button className="border border-slate-200 rounded-lg py-4 text-sm hover:border-slate-400 hover:bg-slate-50 transition-colors text-slate-600">
+                                    Web Design
+                                </button>
+                                <button className="border border-slate-200 rounded-lg py-4 text-sm hover:border-slate-400 hover:bg-slate-50 transition-colors text-slate-600">
+                                    Development
+                                </button>
+                                <button className="border border-slate-200 rounded-lg py-4 text-sm hover:border-slate-400 hover:bg-slate-50 transition-colors text-slate-600">
+                                    Other
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="pt-8">
+                            <button className="w-full bg-slate-900 text-white rounded-full py-4 font-medium hover:bg-slate-800 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:translate-y-0 transition-all">
+                                Submit Application
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        );
+    };
+
+export default FormTemplate;

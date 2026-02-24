@@ -1,0 +1,63 @@
+import React, { useEffect, useState } from "react";
+
+const PointerAILanding = () => {
+        return (
+            <div className="bg-white min-h-screen text-black font-sans">
+                {/* Meta Header (simulating the v0 template page) */}
+                <div className="border-b border-gray-200 px-6 py-4 flex justify-between items-center bg-gray-50/50">
+                    <div className="flex flex-col">
+                        <div className="text-xs text-gray-500 mb-1">Templates / Landing Pages / Pointer AI</div>
+                        <h1 className="text-xl font-bold">Pointer AI Landing Page</h1>
+                    </div>
+                    <div className="flex gap-3">
+                         <button className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium hover:bg-gray-100">Copy Code</button>
+                         <button className="px-4 py-2 bg-black text-white rounded-md text-sm font-medium hover:bg-gray-800">Open in v0</button>
+                    </div>
+                </div>
+
+                {/* Preview Window */}
+                <div className="p-8 bg-gray-100 min-h-[800px] flex justify-center">
+                    <div className="w-full max-w-6xl bg-black rounded-xl overflow-hidden shadow-2xl border border-gray-800 relative">
+                        {/* Landing Page Content */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 z-0"></div>
+                        
+                        {/* Nav */}
+                        <nav className="relative z-10 flex justify-between items-center p-8">
+                            <div className="text-white font-bold text-xl tracking-tight">pointer.ai</div>
+                            <div className="hidden md:flex gap-8 text-gray-400 text-sm font-medium">
+                                <a href="#" className="hover:text-white transition-colors">Product</a>
+                                <a href="#" className="hover:text-white transition-colors">Solutions</a>
+                                <a href="#" className="hover:text-white transition-colors">Pricing</a>
+                                <a href="#" className="hover:text-white transition-colors">Company</a>
+                            </div>
+                            <button className="text-white">
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                            </button>
+                        </nav>
+
+                        {/* Hero */}
+                        <div className="relative z-10 flex flex-col items-center justify-center text-center pt-24 pb-48 px-4">
+                            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full px-3 py-1 text-xs font-medium text-white mb-8 backdrop-blur-sm">
+                                <span className="text-green-400">●</span> Introducing Pointer 2.0
+                            </div>
+                            <h1 className="text-6xl md:text-8xl font-bold text-white tracking-tighter mb-8 max-w-4xl leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500">
+                                Intelligence for<br/>modern teams.
+                            </h1>
+                            <p className="text-xl text-gray-400 max-w-2xl mb-12 leading-relaxed">
+                                Automate your workflow with AI agents that understand your business context. Secure, scalable, and ready to deploy.
+                            </p>
+                            <div className="flex flex-col md:flex-row gap-4 w-full justify-center">
+                                <button className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors">Start Building</button>
+                                <button className="px-8 py-4 bg-transparent border border-white/20 text-white rounded-full font-bold hover:bg-white/10 transition-colors">Read Documentation</button>
+                            </div>
+                        </div>
+
+                        {/* Gradient Overlay */}
+                        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-black to-transparent z-10"></div>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+export default PointerAILanding;
