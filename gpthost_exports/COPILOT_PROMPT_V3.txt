@@ -1,0 +1,47 @@
+Repo root: /home/ubuntu/.openclaw/workspace/prompt-clone-mini
+
+Goal: Generate GPThost-pasteable React snippets for EVERY design analysis markdown in:
+- /home/ubuntu/.openclaw/workspace/prompt-clone-mini/design analysis/lovable/*.md
+- /home/ubuntu/.openclaw/workspace/prompt-clone-mini/design analysis/v0/*.md
+
+CRITICAL TOOLING RULE:
+- The create/edit/view tools REQUIRE ABSOLUTE PATHS. Always use absolute paths for EVERY file you read/write.
+
+Deliverables:
+1) Directory:
+   /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/snippets/
+   - Create ONE snippet file per analysis markdown:
+     /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/snippets/<slug>.html
+
+2) Manifest:
+   /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/manifest.json
+   - JSON array entries: { slug, title, websiteName, file }
+   - file must be the absolute snippet path.
+   - websiteName = pcmini-<slug> (lowercase letters/digits/hyphens only), truncate to 50 chars max.
+
+3) README:
+   /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/README.md
+   - Brief instructions to deploy by pasting into GPThost.
+
+Snippet requirements (each <slug>.html):
+- NOT a full HTML document. Output snippet only.
+- Must include:
+  - <div id="root"></div>
+  - <script src="https://cdn.tailwindcss.com"></script>
+  - React 18 UMD + ReactDOM 18 UMD
+  - Babel standalone
+  - <script type="text/babel"> ... </script>
+- In Babel script:
+  - Exactly ONE React functional component named in PascalCase derived from slug.
+  - Render with ReactDOM.createRoot(document.getElementById('root')).render(<Component />)
+- Keep it lightweight (SVG/gradients/placeholders).
+- Match the analysis markdown’s described layout/typography/colors/sections.
+
+Constraints:
+- Do NOT run npm install, do NOT add packages, do NOT run git.
+
+Now do the work:
+- Enumerate all analysis markdown files in both folders.
+- For each, read it, generate the snippet, and create the snippet file (absolute path).
+- Create manifest.json and README.md (absolute paths).
+- Finish by running a bash verification that snippet count equals markdown count.

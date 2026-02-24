@@ -1,0 +1,99 @@
+<div id="root"></div>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const { useState, useEffect } = React;
+    const { createRoot } = ReactDOM;
+
+    const MindSpaceSaas = () => {
+        return (
+            <div className="bg-white min-h-screen font-sans text-gray-900 selection:bg-indigo-50 selection:text-indigo-600">
+                {/* Nav */}
+                <nav className="border-b border-gray-100 py-4 px-6 md:px-12 flex justify-between items-center sticky top-0 bg-white/90 backdrop-blur z-50">
+                    <div className="flex items-center gap-2 text-indigo-600 font-bold text-xl">
+                        <span>●</span> MindSpace
+                    </div>
+                    <div className="hidden md:flex gap-8 text-sm font-medium text-gray-600">
+                        <a href="#" className="hover:text-indigo-600">Features</a>
+                        <a href="#" className="hover:text-indigo-600">Solutions</a>
+                        <a href="#" className="hover:text-indigo-600">Pricing</a>
+                    </div>
+                    <div className="flex gap-4">
+                        <button className="text-sm font-medium hover:text-indigo-600">Log in</button>
+                        <button className="bg-indigo-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200">Get Started</button>
+                    </div>
+                </nav>
+
+                {/* Hero */}
+                <section className="pt-24 pb-32 px-6 md:px-12 text-center max-w-5xl mx-auto">
+                    <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-8">
+                        <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                        New v2.0 Released
+                    </div>
+                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
+                        Organize your thoughts.<br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Unleash your creativity.</span>
+                    </h1>
+                    <p className="text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed">
+                        The all-in-one workspace for teams to brainstorm, plan, and execute ideas together in real-time.
+                    </p>
+                    <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
+                        <button className="bg-gray-900 text-white px-8 py-4 rounded-full font-bold hover:bg-black transition-colors shadow-xl w-full md:w-auto">Start for free</button>
+                        <button className="text-gray-600 px-8 py-4 font-bold hover:text-black flex items-center gap-2 group w-full md:w-auto justify-center">
+                            <span className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center group-hover:bg-gray-100 transition-colors">▶</span>
+                            Watch demo
+                        </button>
+                    </div>
+                </section>
+
+                {/* Social Proof */}
+                <section className="border-y border-gray-100 py-12 bg-gray-50/50">
+                    <p className="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">Trusted by innovators at</p>
+                    <div className="flex flex-wrap justify-center gap-12 md:gap-24 grayscale opacity-50 px-6">
+                        {['Acme', 'Globex', 'Soylent', 'Initech', 'Umbrella'].map(logo => (
+                            <span key={logo} className="font-bold text-xl">{logo}</span>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Features */}
+                <section className="py-24 px-6 md:px-12 bg-white">
+                    <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+                        {[
+                            { title: "Real-time Sync", desc: "Collaborate with your team instantly, no matter where they are.", icon: "⚡" },
+                            { title: "Smart AI Assistant", desc: "Generate ideas and summaries with our built-in AI engine.", icon: "🤖" },
+                            { title: "Infinite Canvas", desc: "Never run out of space for your big ideas and diagrams.", icon: "∞" }
+                        ].map((feature, i) => (
+                            <div key={i} className="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-lg hover:border-indigo-100 transition-all group">
+                                <div className="w-12 h-12 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-2xl mb-6 shadow-sm group-hover:scale-110 transition-transform">{feature.icon}</div>
+                                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                                <p className="text-gray-500 leading-relaxed">{feature.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* CTA */}
+                <section className="py-24 px-6 md:px-12">
+                    <div className="max-w-4xl mx-auto bg-indigo-600 rounded-3xl p-12 md:p-24 text-center text-white shadow-2xl shadow-indigo-200 relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-purple-500/50 via-transparent to-transparent"></div>
+                        <h2 className="text-4xl md:text-5xl font-bold mb-8 relative z-10">Ready to transform your workflow?</h2>
+                        <button className="bg-white text-indigo-600 px-10 py-4 rounded-full font-bold hover:bg-indigo-50 transition-colors shadow-lg relative z-10">
+                            Get Started Now
+                        </button>
+                        <p className="mt-6 text-indigo-200 text-sm relative z-10">No credit card required • 14-day free trial</p>
+                    </div>
+                </section>
+
+                <footer className="bg-gray-50 py-12 border-t border-gray-200 text-center text-gray-500 text-sm">
+                    © 2024 MindSpace Inc. All rights reserved.
+                </footer>
+            </div>
+        );
+    };
+
+    const root = createRoot(document.getElementById('root'));
+    root.render(<MindSpaceSaas />);
+</script>

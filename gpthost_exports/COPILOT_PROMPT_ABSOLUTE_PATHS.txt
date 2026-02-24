@@ -1,0 +1,48 @@
+Goal: Using ONLY the existing design analysis markdowns in this repo, generate GPThost-pasteable React snippets for *every* analyzed template.
+
+CRITICAL TOOLING NOTE:
+- When you create directories or write files, you MUST use ABSOLUTE PATHS.
+- The repo root absolute path is:
+  /home/ubuntu/.openclaw/workspace/prompt-clone-mini
+- Therefore all outputs must be written under:
+  /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/...
+
+Context:
+- The design analyses live in:
+  - /home/ubuntu/.openclaw/workspace/prompt-clone-mini/design analysis/lovable/*.md
+  - /home/ubuntu/.openclaw/workspace/prompt-clone-mini/design analysis/v0/*.md
+
+Deliverables (create these files/folders using absolute paths):
+1) /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/snippets/ — one file per analysis markdown.
+   - Filename: use the analysis markdown filename (without extension) as slug, and output:
+     /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/snippets/<slug>.html
+   - Content: a **standalone snippet** that GPThost accepts (do NOT output a full HTML document; output a snippet).
+   - The snippet MUST:
+     - include <div id="root"></div>
+     - include Tailwind CDN: <script src="https://cdn.tailwindcss.com"></script>
+     - include React 18 UMD + ReactDOM 18 UMD
+     - include Babel standalone
+     - define exactly one React functional component named in PascalCase from the slug (e.g. parallax-agency-portfolio -> ParallaxAgencyPortfolio)
+     - render it via ReactDOM.createRoot(document.getElementById('root')).render(<ComponentName />)
+     - be reasonably small (prefer gradients/SVG placeholders over large base64 images)
+     - match layout/typography/colors/sections described in the analysis as closely as practical
+     - be responsive
+     - avoid external dependencies besides the CDN scripts (Tailwind/React/ReactDOM/Babel) and optionally Google Fonts
+
+2) /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/manifest.json
+   - JSON array where each entry is:
+     - slug: string
+     - title: string (use the H1 in the markdown if present, else derive from slug)
+     - websiteName: string to use on GPThost (must be lowercase letters/digits/hyphens only)
+     - file: string absolute path like /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/snippets/<slug>.html
+   - websiteName rule: pcmini-<slug> but truncate to max 50 chars total if needed.
+
+3) /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/README.md
+   - Brief instructions: how to deploy each snippet by pasting into GPThost.
+
+Constraints:
+- Do NOT run npm install, do NOT add new packages, do NOT run git commands.
+- Only read the analysis markdown files and write the outputs described above.
+- Keep each snippet self-contained and pasteable.
+
+Now do the work: enumerate all analysis files in both folders, and generate the full set of snippet files + manifest + README.

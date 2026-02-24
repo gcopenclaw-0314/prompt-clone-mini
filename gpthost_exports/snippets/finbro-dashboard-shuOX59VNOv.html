@@ -1,0 +1,95 @@
+<div id="root"></div>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const { useState, useEffect } = React;
+    const { createRoot } = ReactDOM;
+
+    const FinbroDashboard = () => {
+        return (
+            <div className="bg-[#09090b] min-h-screen text-white font-sans p-6 md:p-12">
+                {/* Header */}
+                <header className="flex justify-between items-center mb-16">
+                    <div className="text-3xl font-black tracking-tighter italic">FINBRO</div>
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 shadow-[0_0_20px_rgba(236,72,153,0.5)] cursor-pointer hover:scale-110 transition-transform"></div>
+                </header>
+
+                {/* Dashboard Grid */}
+                <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+                    
+                    {/* KPI Card (Primary) */}
+                    <div className="col-span-1 md:col-span-2 bg-[#18181b] rounded-[2rem] p-10 border border-zinc-800 shadow-2xl relative overflow-hidden group hover:border-zinc-700 transition-colors">
+                        <div className="absolute top-0 right-0 p-10 opacity-10 text-9xl font-black rotate-12 group-hover:rotate-0 transition-transform duration-700">$</div>
+                        
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="w-8 h-8 bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400">⚡</div>
+                            <span className="text-zinc-400 font-medium uppercase tracking-wider text-sm">Current Balance</span>
+                        </div>
+                        
+                        <h2 className="text-7xl md:text-9xl font-bold tracking-tighter mb-4">,810</h2>
+                        
+                        <div className="flex items-center gap-4 text-green-400 font-medium bg-green-400/10 inline-block px-4 py-2 rounded-full">
+                            <span>▲ +12.5%</span>
+                            <span className="text-zinc-500 text-sm font-normal">vs last month</span>
+                        </div>
+                    </div>
+
+                    {/* Secondary Card */}
+                    <div className="bg-[#18181b] rounded-[2rem] p-10 border border-zinc-800 shadow-xl flex flex-col justify-between hover:border-zinc-700 transition-colors">
+                         <div>
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="w-8 h-8 bg-zinc-800 rounded-full flex items-center justify-center text-zinc-400">💳</div>
+                                <span className="text-zinc-400 font-medium uppercase tracking-wider text-sm">Expenses</span>
+                            </div>
+                            <h3 className="text-4xl font-bold mb-2">,240</h3>
+                            <div className="w-full bg-zinc-800 h-2 rounded-full mt-4 overflow-hidden">
+                                <div className="bg-pink-500 w-3/4 h-full rounded-full"></div>
+                            </div>
+                         </div>
+                         <div className="mt-8 pt-8 border-t border-zinc-800">
+                             <div className="flex justify-between text-sm mb-2">
+                                 <span className="text-zinc-400">Limit</span>
+                                 <span>,000</span>
+                             </div>
+                             <div className="flex justify-between text-sm">
+                                 <span className="text-zinc-400">Remaining</span>
+                                 <span className="text-white">60</span>
+                             </div>
+                         </div>
+                    </div>
+
+                    {/* Transactions List */}
+                    <div className="col-span-1 md:col-span-3 bg-[#18181b] rounded-[2rem] p-10 border border-zinc-800 shadow-xl">
+                        <div className="flex justify-between items-center mb-8">
+                             <h3 className="text-xl font-bold">Recent Transactions</h3>
+                             <button className="text-sm text-zinc-400 hover:text-white">View All</button>
+                        </div>
+                        <div className="space-y-4">
+                            {[
+                                { name: "Apple Store", date: "Today, 10:23 AM", amount: "-29.00", icon: "🍎" },
+                                { name: "Spotify Premium", date: "Yesterday", amount: "-4.00", icon: "🎵" },
+                                { name: "Salary Deposit", date: "Oct 24, 2024", amount: "+,200.00", icon: "💰", pos: true }
+                            ].map((t, i) => (
+                                <div key={i} className="flex justify-between items-center p-4 hover:bg-white/5 rounded-xl transition-colors cursor-pointer">
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center text-xl">{t.icon}</div>
+                                        <div>
+                                            <p className="font-bold">{t.name}</p>
+                                            <p className="text-sm text-zinc-500">{t.date}</p>
+                                        </div>
+                                    </div>
+                                    <span className={`font-mono font-medium ${t.pos ? 'text-green-400' : 'text-white'}`}>{t.amount}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+
+    const root = createRoot(document.getElementById('root'));
+    root.render(<FinbroDashboard />);
+</script>

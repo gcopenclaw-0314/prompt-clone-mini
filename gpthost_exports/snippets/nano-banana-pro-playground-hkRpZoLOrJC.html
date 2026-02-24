@@ -1,0 +1,102 @@
+<div id="root"></div>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const { useState, useEffect } = React;
+    const { createRoot } = ReactDOM;
+
+    const NanoBananaProPlayground = () => {
+        return (
+            <div className="bg-gray-50 min-h-screen text-gray-900 font-sans p-4 md:p-8 flex justify-center items-start">
+                <div className="w-full max-w-3xl space-y-6">
+                    {/* Header */}
+                    <div className="flex justify-between items-center">
+                        <div className="flex items-center gap-2">
+                             <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white font-bold text-xs">▲</div>
+                             <h1 className="font-semibold text-lg">Nano Banana Pro</h1>
+                        </div>
+                        <a href="#" className="text-sm text-gray-500 hover:text-black">View Docs ↗</a>
+                    </div>
+
+                    {/* API Key Alert */}
+                    <div className="bg-gray-900 text-gray-300 p-4 rounded-lg text-sm border border-gray-700 flex justify-between items-center">
+                        <span>This playground requires an <code className="bg-gray-800 px-1 py-0.5 rounded text-white">AI_GATEWAY_API_KEY</code>.</span>
+                        <button className="text-white underline hover:no-underline">Configure</button>
+                    </div>
+
+                    {/* Main Workspace */}
+                    <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                        <div className="p-6 space-y-6">
+                            {/* Prompt Input */}
+                            <div className="space-y-2">
+                                <div className="flex justify-between">
+                                    <label className="text-sm font-medium text-gray-700">Prompt</label>
+                                    <select className="text-xs bg-gray-100 border border-gray-200 rounded px-2 py-1">
+                                        <option>Stable Diffusion XL</option>
+                                        <option>DALL-E 3</option>
+                                    </select>
+                                </div>
+                                <textarea className="w-full h-24 p-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black/5 resize-none text-sm" placeholder="A futuristic city with flying cars..." defaultValue="A cute robot eating a banana in a cyberpunk style"></textarea>
+                            </div>
+
+                            {/* Tabs / Uploads */}
+                            <div>
+                                <div className="flex gap-4 border-b border-gray-100 pb-2 mb-4 text-sm font-medium text-gray-500">
+                                    <button className="text-black border-b-2 border-black pb-2 -mb-2.5">Files</button>
+                                    <button className="hover:text-black transition-colors">URLs</button>
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="border-2 border-dashed border-gray-200 rounded-lg h-32 flex flex-col items-center justify-center text-gray-400 hover:bg-gray-50 hover:border-gray-300 transition-colors cursor-pointer">
+                                        <span className="text-2xl mb-1">+</span>
+                                        <span className="text-xs">Upload Image 1</span>
+                                    </div>
+                                    <div className="border-2 border-dashed border-gray-200 rounded-lg h-32 flex flex-col items-center justify-center text-gray-400 hover:bg-gray-50 hover:border-gray-300 transition-colors cursor-pointer">
+                                        <span className="text-2xl mb-1">+</span>
+                                        <span className="text-xs">Upload Image 2</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Action */}
+                            <button className="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                                <span>Run Generation</span>
+                                <span className="bg-gray-700 text-[10px] px-1.5 py-0.5 rounded text-gray-300">⌘R</span>
+                            </button>
+                        </div>
+                        
+                        {/* Preview Area */}
+                        <div className="bg-gray-50 border-t border-gray-200 p-6 flex items-center justify-center min-h-[300px] text-gray-400">
+                            <div className="text-center">
+                                <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto mb-4 animate-pulse"></div>
+                                <p className="text-sm">Ready to generate...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* History */}
+                    <div className="pt-4">
+                        <h3 className="text-sm font-medium text-gray-500 mb-4 uppercase tracking-wider">History</h3>
+                        <div className="grid grid-cols-4 gap-4">
+                             {[1, 2, 3, 4].map(i => (
+                                 <div key={i} className="aspect-square bg-white rounded-lg border border-gray-200 shadow-sm"></div>
+                             ))}
+                        </div>
+                    </div>
+
+                    <footer className="flex justify-between text-xs text-gray-400 pt-8 border-t border-gray-200">
+                        <a href="#">Make this app your own</a>
+                        <div className="flex gap-4">
+                            <a href="#">How it works</a>
+                            <a href="#">Feedback</a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        );
+    };
+
+    const root = createRoot(document.getElementById('root'));
+    root.render(<NanoBananaProPlayground />);
+</script>

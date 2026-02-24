@@ -1,0 +1,103 @@
+<div id="root"></div>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const { useState, useEffect } = React;
+    const { createRoot } = ReactDOM;
+
+    const WarmRetroWedding = () => {
+        return (
+            <div className="bg-[#fef9f0] text-[#4a3b32] font-serif min-h-screen">
+                {/* Hero */}
+                <header className="p-8 md:p-16 text-center border-b-2 border-[#e6d0c0] border-double">
+                     <p className="text-sm uppercase tracking-widest text-[#8c6b5d] mb-4">Together with their families</p>
+                     <h1 className="text-6xl md:text-8xl font-medium mb-6 text-[#7d3c3c]">
+                         Clara <span className="text-4xl align-middle italic">&</span> Leo
+                     </h1>
+                     <div className="inline-block border-y border-[#4a3b32] py-2 px-8 uppercase tracking-widest text-sm font-sans">
+                         October 14th, 2024 • Austin, Texas
+                     </div>
+                </header>
+
+                {/* Story */}
+                <section className="py-16 px-6 md:px-12 max-w-5xl mx-auto">
+                    <h2 className="text-4xl text-center mb-12 italic text-[#8c6b5d]">Our Journey</h2>
+                    <div className="grid md:grid-cols-2 gap-8">
+                         {[
+                             { date: "May 2018", title: "First Meeting", desc: "A chance encounter at a vinyl shop." },
+                             { date: "Dec 2019", title: "The Move", desc: "Packing boxes and driving cross-country." },
+                             { date: "Aug 2021", title: "The Proposal", desc: "Sunset at Mount Bonnell." },
+                             { date: "Oct 2024", title: "The Wedding", desc: "Starting our forever." }
+                         ].map((item, i) => (
+                             <div key={i} className="border border-[#e6d0c0] p-8 bg-white relative shadow-[4px_4px_0px_0px_rgba(230,208,192,1)]">
+                                 <span className="absolute -top-3 left-6 bg-[#fef9f0] px-2 text-xs font-sans uppercase tracking-widest text-[#7d3c3c]">{item.date}</span>
+                                 <h3 className="text-2xl mb-2">{item.title}</h3>
+                                 <p className="text-[#8c6b5d] italic">{item.desc}</p>
+                             </div>
+                         ))}
+                    </div>
+                </section>
+
+                {/* Details */}
+                <section className="bg-[#fffdf9] py-16 px-6 border-y border-[#e6d0c0]">
+                    <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 text-center">
+                        <div className="p-8 border-2 border-dashed border-[#e6d0c0] rounded-xl">
+                            <h3 className="text-3xl mb-4 text-[#7d3c3c]">Ceremony</h3>
+                            <p className="font-sans text-sm uppercase mb-2">4:30 PM</p>
+                            <p className="italic text-[#8c6b5d]">The Greenhouse at Driftwood</p>
+                            <a href="#" className="inline-block mt-4 text-xs font-sans uppercase underline decoration-[#7d3c3c] decoration-wavy">View Map</a>
+                        </div>
+                        <div className="p-8 border-2 border-dashed border-[#e6d0c0] rounded-xl">
+                            <h3 className="text-3xl mb-4 text-[#7d3c3c]">Reception</h3>
+                            <p className="font-sans text-sm uppercase mb-2">6:00 PM</p>
+                            <p className="italic text-[#8c6b5d]">Dinner & Dancing to follow</p>
+                            <a href="#" className="inline-block mt-4 text-xs font-sans uppercase underline decoration-[#7d3c3c] decoration-wavy">View Map</a>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Schedule */}
+                <section className="py-16 px-6 max-w-2xl mx-auto text-center">
+                    <h2 className="text-3xl mb-12 italic">Order of Events</h2>
+                    <ul className="space-y-6 font-sans text-sm uppercase tracking-wider text-[#8c6b5d]">
+                        <li className="flex justify-between border-b border-[#e6d0c0] pb-2"><span>4:00 PM</span> <span>Arrival</span></li>
+                        <li className="flex justify-between border-b border-[#e6d0c0] pb-2"><span>4:30 PM</span> <span>Ceremony</span></li>
+                        <li className="flex justify-between border-b border-[#e6d0c0] pb-2"><span>5:30 PM</span> <span>Cocktail Hour</span></li>
+                        <li className="flex justify-between border-b border-[#e6d0c0] pb-2"><span>7:00 PM</span> <span>Dinner</span></li>
+                        <li className="flex justify-between border-b border-[#e6d0c0] pb-2"><span>9:00 PM</span> <span>Dancing</span></li>
+                    </ul>
+                </section>
+
+                {/* RSVP */}
+                <section className="py-16 px-6 bg-[#f4ece4]">
+                    <div className="max-w-xl mx-auto border-4 border-double border-[#7d3c3c] p-8 md:p-12 bg-[#fef9f0] text-center">
+                        <h2 className="text-4xl md:text-5xl text-[#7d3c3c] mb-8">R.S.V.P.</h2>
+                        <form className="space-y-6 text-left font-sans text-[#4a3b32]" onSubmit={e => e.preventDefault()}>
+                            <input type="text" placeholder="Your Name" className="w-full bg-transparent border-b border-[#8c6b5d] py-3 focus:outline-none placeholder:text-[#8c6b5d]/50" />
+                            <input type="email" placeholder="Email Address" className="w-full bg-transparent border-b border-[#8c6b5d] py-3 focus:outline-none placeholder:text-[#8c6b5d]/50" />
+                            
+                            <div className="flex gap-8 justify-center py-4 text-sm">
+                                <label className="flex items-center gap-2"><input type="radio" name="attending" className="accent-[#7d3c3c]" /> Accepts</label>
+                                <label className="flex items-center gap-2"><input type="radio" name="attending" className="accent-[#7d3c3c]" /> Declines</label>
+                            </div>
+
+                            <button className="w-full bg-[#7d3c3c] text-[#fef9f0] py-4 uppercase tracking-[0.2em] text-xs hover:bg-[#5e2d2d] transition-colors shadow-lg">
+                                Send Reply
+                            </button>
+                        </form>
+                    </div>
+                </section>
+
+                <footer className="bg-[#4a1a1a] text-[#fef9f0] py-12 text-center font-sans text-xs uppercase tracking-widest">
+                    <p>Clara & Leo • The Wedding</p>
+                    <p className="mt-2 text-[#e6d0c0]">October 14, 2024</p>
+                </footer>
+            </div>
+        );
+    };
+
+    const root = createRoot(document.getElementById('root'));
+    root.render(<WarmRetroWedding />);
+</script>

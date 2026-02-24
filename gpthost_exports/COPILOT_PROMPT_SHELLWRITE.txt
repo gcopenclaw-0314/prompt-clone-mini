@@ -1,0 +1,48 @@
+You are working in this repo:
+  /home/ubuntu/.openclaw/workspace/prompt-clone-mini
+
+Task: Generate GPThost-pasteable React snippets for EVERY design analysis markdown in:
+- "/home/ubuntu/.openclaw/workspace/prompt-clone-mini/design analysis/lovable"
+- "/home/ubuntu/.openclaw/workspace/prompt-clone-mini/design analysis/v0"
+
+IMPORTANT EXECUTION CONSTRAINTS:
+- Use ONLY the shell tool to write files (via heredoc redirection). Do NOT use any file-write tool that requires absolute paths.
+- Always write to ABSOLUTE PATHS.
+- Do NOT run npm install, do NOT add packages, do NOT run git.
+
+Output artifacts to create:
+1) Snippets directory:
+   - mkdir -p /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/snippets
+   - For each analysis markdown file, create:
+     /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/snippets/<slug>.html
+
+2) Manifest:
+   /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/manifest.json
+   - JSON array entries: { slug, title, websiteName, file }
+   - file must be absolute path to the snippet file.
+   - websiteName rule: "pcmini-<slug>", lowercase letters/digits/hyphens only, truncate to max 50 chars.
+
+3) README:
+   /home/ubuntu/.openclaw/workspace/prompt-clone-mini/gpthost_exports/README.md
+
+SNIPPET FORMAT (each <slug>.html):
+- This is NOT a full HTML document.
+- Must include:
+  - <div id="root"></div>
+  - <script src="https://cdn.tailwindcss.com"></script>
+  - React 18 UMD + ReactDOM 18 UMD
+  - Babel standalone
+  - <script type="text/babel"> ... </script>
+- Inside Babel script:
+  - Define exactly ONE React functional component named in PascalCase derived from slug.
+  - Render with ReactDOM.createRoot(...).render(<Component />)
+- Keep snippets light: use gradients, SVG placeholders, and simple shapes rather than heavy images.
+- Match layout/typography/colors/sections described in the analysis as closely as practical.
+
+EXECUTION PLAN YOU MUST FOLLOW:
+A) Use shell to list analysis markdown files and build a deterministic ordered list.
+B) For each markdown, read it and then use shell heredoc to write the corresponding snippet file.
+C) Use shell heredoc to write manifest.json and README.md.
+D) Verify: shell command to count snippets and ensure it matches markdown count.
+
+Now execute the plan.
